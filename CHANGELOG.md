@@ -4,7 +4,11 @@ All notable changes to this project will be documented in this file.
 
 ## [Unreleased]
 
-## Release [v0.0.1] - 2020-12-08
+### Added
+
+- Initial project
+
+## Release [v.X.X.X] - YYYY-MM-DD
 
 ### Added
 
