@@ -1,0 +1,31 @@
+version: "3"
+services:
+  global_backend:
+    restart: always
+    env_file:
+      - .env
+    build: .
+    ports:
+      - '${PORT}:${PORT}'
+    environment:
+      - DB_URL=DB_URI
+    volumes:
+      - .:/app
+      - /app/node_modules
+    depends_on:
+      - global_db
+    links: 
+      - global_db  
+
+  global_db:
+    image: mongo
+    restart: always
+    env_file:
+      - .env
+    volumes:
+      - mongodata:/data/global_db
+    ports:
+      - '${DB_PORT}:${DB_PORT}'
+
+volumes:
+  mongodata:
