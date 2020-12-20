@@ -1,31 +1,41 @@
-version: "3"
+version: '3.1'
 services:
-  global_backend:
-    restart: always
-    env_file:
-      - .env
+  api:
+    container_name: nest_api
     build: .
-    ports:
-      - '${PORT}:${PORT}'
-    environment:
-      - DB_URL=DB_URI
-    volumes:
-      - .:/app
-      - /app/node_modules
-    depends_on:
-      - global_db
-    links: 
-      - global_db  
-
-  global_db:
-    image: mongo
-    restart: always
-    env_file:
+    env_file: 
       - .env
-    volumes:
-      - mongodata:/data/global_db
-    ports:
-      - '${DB_PORT}:${DB_PORT}'
+    ports: 
+      - ${PORT}:${PORT}
+      - 9229:9229
+    volumes: 
+      - .:/usr/src/app  
+      - /usr/src/app/node_modules
+    environment: 
+        DB_HOST: database
+        DB_PORT: 5432
+    networks: 
+      - backend
+    depends_on: 
+      - database      
 
-volumes:
-  mongodata:
+  database:
+    image: postgres:9.6-alpine
+    container_name: db_nest
+    networks: 
+      - backend
+    env_file: 
+      - .env
+    environment: 
+        POSTGRES_USER: ${DB_USER}
+        POSTGRES_PASSWORD: ${DB_PASSWORD}
+        POSTGRES_DB: ${DB_NAME}
+        PGDATA: /var/lib/postgresql/data/pgdata
+    ports:
+      - ${DB_PORT}:${DB_PORT}
+    volumes: 
+      - api_db_data:/var/lib/postgresql/data
+networks: 
+  backend:
+volumes: 
+  api_db_data:
