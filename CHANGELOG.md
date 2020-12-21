@@ -7,7 +7,10 @@ All notable changes to this project will be documented in this file.
 ### Added
 
 - Initial project
-- Add Docker w/ Node and docker-compose w/ MongoDB
+- Add Docker w/ Node and docker-compose w/ PostgreSQL
+- Add @nestjs/typeorm TypeORM
+- Add module User
+- Add GraphQL
 
 ## Release [v.X.X.X] - YYYY-MM-DD
 
