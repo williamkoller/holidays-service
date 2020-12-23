@@ -1,0 +1,81 @@
+{
+	"info": {
+		"_postman_id": "0dcf5921-0966-4a43-8d74-7e3facbb0979",
+		"name": "Global Holidays Service",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Find All Users",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "graphql",
+					"graphql": {
+						"query": "{\n  findAllUsers {\n    id\n    firstName\n    lastName\n    isActive\n    email\n    createdAt\n    updatedAt\n  }\n}",
+						"variables": ""
+					}
+				},
+				"url": {
+					"raw": "{{base_url}}/graphql",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"graphql"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create User",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "graphql",
+					"graphql": {
+						"query": "mutation {\n  createUser(\n    data: {\n      firstName: \"Marli\"\n      lastName: \"Terezinha\"\n      email: \"marli_t@gmail.com\"\n      password: \"1234567\"\n    }\n  ) {\n    firstName\n    lastName\n    isActive\n    email\n  }\n}\n",
+						"variables": ""
+					}
+				},
+				"url": {
+					"raw": "{{base_url}}/graphql",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"graphql"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Find User By Id",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "graphql",
+					"graphql": {
+						"query": "{\n  findUserById(id: \"2b00937e-f149-4587-b3fe-e08a4fd43e1b\") {\n    firstName\n    lastName\n    isActive\n    email\n  }\n}\n",
+						"variables": ""
+					}
+				},
+				"url": {
+					"raw": "{{base_url}}/graphql",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"graphql"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
