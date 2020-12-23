@@ -11,6 +11,8 @@ All notable changes to this project will be documented in this file.
 - Add @nestjs/typeorm TypeORM
 - Add module User
 - Add GraphQL
+- Add UserService
+- Add UserResolver
 
 ## Release [v.X.X.X] - YYYY-MM-DD
 
