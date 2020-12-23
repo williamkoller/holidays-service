@@ -1,8 +1,12 @@
+import { Field, HideField, ID, ObjectType } from '@nestjs/graphql'
 import { hashPasswordTransform } from 'src/commom/helpers/bcrypt'
-import { Column, CreateDateColumn, DeleteDateColumn, PrimaryGeneratedColumn, UpdateDateColumn } from 'typeorm'
+import { Column, CreateDateColumn, DeleteDateColumn, Entity, PrimaryGeneratedColumn, UpdateDateColumn } from 'typeorm'
 
+@ObjectType()
+@Entity()
 export class User {
   @PrimaryGeneratedColumn('uuid')
+  @Field(() => ID)
   id: string
 
   @Column()
@@ -19,8 +23,8 @@ export class User {
 
   @Column({
     transformer: hashPasswordTransform,
-    select: false,
   })
+  @HideField()
   password: string
 
   @CreateDateColumn()
