@@ -1,7 +1,7 @@
 version: '3.1'
 services:
   api:
-    container_name: nest_api
+    container_name: global_holidays_api
     build: .
     env_file:
       - .env
@@ -9,8 +9,8 @@ services:
       - ${PORT}:${PORT}
       - 9229:9229
     volumes:
-      - .:/usr/src/app
-      - /usr/src/app/node_modules
+      - ./:/app
+      - /app/node_modules
     environment:
       DB_HOST: database
       DB_PORT: 5432
@@ -20,14 +20,14 @@ services:
       - database
 
   database:
-    image: postgres:9.6-alpine
-    container_name: db_nest
+    image: postgres:13.1-alpine
+    container_name: global_holidays_db
     networks:
       - backend
     env_file:
       - .env
     environment:
-      POSTGRES_USER: ${DB_USERNAME}
+      POSTGRES_USER: ${DB_USER}
       POSTGRES_PASSWORD: ${DB_PASSWORD}
       POSTGRES_DB: ${DB_NAME}
       PGDATA: /var/lib/postgresql/data/pgdata
