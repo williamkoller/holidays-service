@@ -1,6 +1,6 @@
 import { Field, HideField, ID, ObjectType } from '@nestjs/graphql'
 import { hashPasswordTransform } from 'src/commom/helpers/bcrypt'
-import { Column, CreateDateColumn, DeleteDateColumn, Entity, PrimaryGeneratedColumn, UpdateDateColumn } from 'typeorm'
+import { Column, CreateDateColumn, Entity, PrimaryGeneratedColumn, UpdateDateColumn } from 'typeorm'
 
 @ObjectType()
 @Entity()
@@ -16,7 +16,7 @@ export class User {
   lastName: string
 
   @Column({ default: true })
-  isActive: boolean
+  isActive?: boolean
 
   @Column()
   email: string
@@ -32,7 +32,4 @@ export class User {
 
   @UpdateDateColumn()
   updatedAt: Date
-
-  @DeleteDateColumn()
-  deletedAt: Date
 }
