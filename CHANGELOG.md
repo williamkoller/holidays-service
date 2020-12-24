@@ -13,6 +13,7 @@ All notable changes to this project will be documented in this file.
 - Add GraphQL
 - Add UserService
 - Add UserResolver
+- Add findUserByEmail, updateUser and deleteUser on User
 
 ## Release [v.X.X.X] - YYYY-MM-DD
 
