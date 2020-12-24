@@ -14,6 +14,8 @@ All notable changes to this project will be documented in this file.
 - Add UserService
 - Add UserResolver
 - Add findUserByEmail, updateUser and deleteUser on User
+- Add Module Continent
+- Add Module Country
 
 ## Release [v.X.X.X] - YYYY-MM-DD
 
