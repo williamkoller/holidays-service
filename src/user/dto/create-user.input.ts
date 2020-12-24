@@ -1,4 +1,5 @@
 import { InputType } from '@nestjs/graphql'
+import { Type } from 'class-transformer'
 import { IsEmail, IsNotEmpty, IsNumber, IsOptional, IsString } from 'class-validator'
 
 @InputType()
@@ -12,6 +13,7 @@ export class CreateUserInput {
   lastName: string
 
   @IsNumber()
+  @Type(() => Number)
   @IsOptional()
   isActive?: boolean
 

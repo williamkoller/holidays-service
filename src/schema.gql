@@ -20,10 +20,13 @@ scalar DateTime
 type Query {
   findAllUsers: [User!]!
   findUserById(id: String!): User!
+  findUserByEmail(email: String!): User!
 }
 
 type Mutation {
   createUser(data: CreateUserInput!): User!
+  updateUser(data: UpdateUserInput!, id: String!): User!
+  deleteUser(id: String!): String!
 }
 
 input CreateUserInput {
@@ -32,4 +35,13 @@ input CreateUserInput {
   isActive: Boolean
   email: String!
   password: String!
+}
+
+input UpdateUserInput {
+  id: String
+  firstName: String
+  lastName: String
+  isActive: Boolean
+  email: String
+  password: String
 }
