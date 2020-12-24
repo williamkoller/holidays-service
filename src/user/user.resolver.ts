@@ -1,6 +1,6 @@
 import { Args, Mutation, Query, Resolver } from '@nestjs/graphql'
 import { DeleteUserEnum } from 'src/commom/enum/delete-user.enum'
-import { User } from '../entities/user.entity'
+import { User } from '../entities/user/user.entity'
 import { CreateUserInput } from './dto/create-user.input'
 import { UpdateUserInput } from './dto/update-user.input'
 import { UserService } from './user.service'

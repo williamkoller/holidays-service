@@ -2,7 +2,7 @@ import { BadRequestException, Injectable, InternalServerErrorException, NotFound
 import { InjectRepository } from '@nestjs/typeorm'
 import { DeleteUserEnum } from 'src/commom/enum/delete-user.enum'
 import { Repository } from 'typeorm'
-import { User } from '../entities/user.entity'
+import { User } from '../entities/user/user.entity'
 import { CreateUserInput } from './dto/create-user.input'
 import { UpdateUserInput } from './dto/update-user.input'
 

@@ -5,7 +5,7 @@ import { join } from 'path'
 import { UserModule } from './user/user.module'
 import { ContinentModule } from './continent/continent.module'
 import { CountryModule } from './country/country.module'
-import { AuthModule } from './auth/auth.module';
+import { AuthModule } from './auth/auth.module'
 
 @Module({
   imports: [
