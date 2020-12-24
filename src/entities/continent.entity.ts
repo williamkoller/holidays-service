@@ -4,29 +4,24 @@ import { PrimaryGeneratedColumn } from 'typeorm'
 
 export class Continent {
   @IsString()
-  @IsNotEmpty()
+  @IsNotEmpty({ message: 'this field cannot be empty' })
   @PrimaryGeneratedColumn('uuid')
   id: string
 
   @IsString()
-  @IsNotEmpty()
+  @IsNotEmpty({ message: 'this field cannot be empty' })
   name: string
 
   @IsNumber()
-  @IsNotEmpty()
+  @IsNotEmpty({ message: 'this field cannot be empty' })
   @Type(() => Number)
   territorialExtension: number
 
   @IsString()
-  @IsNotEmpty()
+  @IsNotEmpty({ message: 'this field cannot be empty' })
   population: string
 
   @IsString()
-  @IsNotEmpty()
+  @IsNotEmpty({ message: 'this field cannot be empty' })
   countries: string
-
-  @IsNumber()
-  @IsNotEmpty()
-  @Type(() => Number)
-  pibTotal: number
 }

@@ -3,7 +3,8 @@ import { GraphQLModule } from '@nestjs/graphql'
 import { TypeOrmModule } from '@nestjs/typeorm'
 import { join } from 'path'
 import { UserModule } from './user/user.module'
-import { ContinentModule } from './continent/continent.module';
+import { ContinentModule } from './continent/continent.module'
+import { CountryModule } from './country/country.module'
 
 @Module({
   imports: [
@@ -13,6 +14,7 @@ import { ContinentModule } from './continent/continent.module';
     }),
     UserModule,
     ContinentModule,
+    CountryModule,
   ],
   controllers: [],
   providers: [],
