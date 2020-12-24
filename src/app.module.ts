@@ -3,6 +3,7 @@ import { GraphQLModule } from '@nestjs/graphql'
 import { TypeOrmModule } from '@nestjs/typeorm'
 import { join } from 'path'
 import { UserModule } from './user/user.module'
+import { ContinentModule } from './continent/continent.module';
 
 @Module({
   imports: [
@@ -11,6 +12,7 @@ import { UserModule } from './user/user.module'
       autoSchemaFile: join(process.cwd(), 'src/schema.gql'),
     }),
     UserModule,
+    ContinentModule,
   ],
   controllers: [],
   providers: [],
