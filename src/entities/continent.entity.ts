@@ -1,6 +1,6 @@
 import { Type } from 'class-transformer'
 import { IsNotEmpty, IsNumber, IsString } from 'class-validator'
-import { PrimaryGeneratedColumn } from 'typeorm'
+import { CreateDateColumn, PrimaryGeneratedColumn, UpdateDateColumn } from 'typeorm'
 
 export class Continent {
   @IsString()
@@ -24,4 +24,10 @@ export class Continent {
   @IsString()
   @IsNotEmpty({ message: 'this field cannot be empty' })
   countries: string
+
+  @CreateDateColumn()
+  createdAt: Date
+
+  @UpdateDateColumn()
+  updatedAt: Date
 }
