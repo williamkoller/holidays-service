@@ -10,7 +10,7 @@ import { UpdateUserInput } from './dto/update-user.input'
 export class UserService {
   constructor(@InjectRepository(User) private readonly userRepository: Repository<User>) {}
 
-  async findAllUsers(): Promise<User[]> {
+  async findAllUsers(): Promise<Array<User>> {
     return await this.userRepository.find()
   }
 

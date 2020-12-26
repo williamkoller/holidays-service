@@ -1,25 +1,28 @@
-import { Field, ID } from '@nestjs/graphql'
-import { Type } from 'class-transformer'
-import { IsNotEmpty, IsNumber, IsString } from 'class-validator'
-import { CreateDateColumn, PrimaryGeneratedColumn, UpdateDateColumn } from 'typeorm'
+import { Field, ID, ObjectType } from '@nestjs/graphql'
+import { Column, CreateDateColumn, Entity, PrimaryGeneratedColumn, UpdateDateColumn } from 'typeorm'
 
+@ObjectType()
+@Entity()
 export class Continent {
   @PrimaryGeneratedColumn('uuid')
   @Field(() => ID)
   id: string
 
-  @IsString()
-  @IsNotEmpty({ message: 'This field cannot be empty' })
+  @Column()
+  @Field()
   name: string
 
-  @IsNumber()
-  @IsNotEmpty({ message: 'This field cannot be empty' })
-  @Type(() => Number)
+  @Column({ type: 'float' })
+  @Field()
   territorialExtension: number
 
-  @IsString()
-  @IsNotEmpty({ message: 'This field cannot be empty' })
-  population: string
+  @Column({ type: 'float' })
+  @Field()
+  population: number
+
+  @Column({ type: 'int' })
+  @Field()
+  numberOfCountries: number
 
   @CreateDateColumn()
   createdAt: Date

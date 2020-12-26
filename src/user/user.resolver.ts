@@ -10,7 +10,7 @@ export class UserResolver {
   constructor(private readonly userSerice: UserService) {}
 
   @Query(() => [User])
-  async findAllUsers(): Promise<User[]> {
+  async findAllUsers(): Promise<Array<User>> {
     return await this.userSerice.findAllUsers()
   }
 

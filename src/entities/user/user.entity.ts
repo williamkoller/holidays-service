@@ -1,5 +1,5 @@
 import { Field, HideField, ID, ObjectType } from '@nestjs/graphql'
-import { IsNotEmpty, IsOptional } from 'class-validator'
+import { IsOptional } from 'class-validator'
 import { hashPasswordTransform } from 'src/commom/helpers/bcrypt'
 import { Column, CreateDateColumn, Entity, PrimaryGeneratedColumn, UpdateDateColumn } from 'typeorm'
 
@@ -11,26 +11,26 @@ export class User {
   id: string
 
   @Column()
-  @IsNotEmpty({ message: 'This field cannot be empty' })
+  @Field()
   firstName: string
 
   @Column()
-  @IsNotEmpty({ message: 'This field cannot be empty' })
+  @Field()
   lastName: string
 
   @Column({ default: true })
   @IsOptional()
+  @Field()
   isActive?: boolean
 
   @Column()
-  @IsNotEmpty({ message: 'This field cannot be empty' })
+  @Field()
   email: string
 
   @Column({
     transformer: hashPasswordTransform,
   })
   @HideField()
-  @IsNotEmpty({ message: 'This field cannot be empty' })
   password: string
 
   @CreateDateColumn()
