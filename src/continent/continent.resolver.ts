@@ -18,4 +18,9 @@ export class ContinentResolver {
   async createContinent(@Args('data') data: CreateContinentInput): Promise<Continent> {
     return await this.continentService.createContinent(data)
   }
+
+  @Query(() => Continent)
+  async findContinentByName(@Args('name') name: string): Promise<Continent> {
+    return await this.continentService.findContinentByName(name)
+  }
 }

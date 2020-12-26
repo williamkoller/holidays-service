@@ -20,4 +20,12 @@ export class ContinentService {
     const continent = this.continentRepository.create(data)
     return await this.continentRepository.save(continent)
   }
+
+  async findContinentByName(name: string): Promise<Continent> {
+    const findContinent = await this.continentRepository.findOne({ where: { name } })
+    if (!findContinent) {
+      throw new NotFoundException('Continent not found.')
+    }
+    return findContinent
+  }
 }

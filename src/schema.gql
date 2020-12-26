@@ -37,6 +37,7 @@ type Query {
   findUserById(id: String!): User!
   findUserByEmail(email: String!): User!
   findAllContinents: [Continent!]!
+  findContinentByName(name: String!): Continent!
 }
 
 type Mutation {
